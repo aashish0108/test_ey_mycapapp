@@ -1,0 +1,80 @@
+###Get the service document
+http://localhost:4004/odata/v4/CatalogService
+
+###Get the service document metadata
+http://localhost:4004/odata/v4/CatalogService/$metadata
+
+###Get All Employees data
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+
+###Get Employee data by ID
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/02BD2137-0890-1EEA-A6C2-BB55C19887FB
+
+###Get Employees data based on pagination
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$top=2&skip=2
+
+###Get Employees data based on filter
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$filter=sex eq 'F'
+
+###Count the employees
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/$count
+
+###Selection of few columns
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$select=ID,nameFirst,sex
+
+###Insert Employee Data
+POST http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+Content-Type: application/json
+
+{
+
+      "nameFirst": "Aashish",
+      "nameMiddle": null,
+      "nameLast": "Kumar",
+      "nameInitials": null,
+      "sex": "M",
+      "language": "E",
+      "phoneNumber": "+91 7015679376",
+      "email": "aashish122001@gmail.com",
+      "loginName": "STYLES",
+      "Currency_code": "USD",
+      "salaryAmount": 1000000,
+      "accountNumber": "12039483020",
+      "bankId": "510000655",
+      "bankName": "My Bank of India"
+    }
+
+###Get the newly created Employee
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/6f2be9b8-4e7d-4e65-ad8a-d32bf98839c4
+
+####Update Employee Data
+PATCH http://localhost:4004/odata/v4/CatalogService/EmployeeSet/a27497c1-814a-4323-801e-c890cf860475
+Content-Type: application/json
+
+{
+    "salaryAmount":"2000000",
+    "Currency_code":"EUR"
+}
+
+###Delete Employee Data
+DELETE http://localhost:4004/odata/v4/CatalogService/EmployeeSet/6f2be9b8-4e7d-4e65-ad8a-d32bf98839c4
+
+###Get all Purchase orders
+http://localhost:4004/odata/v4/CatalogService/POs
+
+###Get Single Purchase order
+http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC34052
+
+###Get the PO and PO Items together - using $expand
+http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC2E052?$expand=Items
+
+###Boosting a order
+POST http://localhost:4004/odata/v4/CatalogService/POs('74867AD200E41EDBA5D8B0C98DC34052')/CatalogService.boost
+Content-Type: application/json
+
+{
+    
+}
+###Test function to get the largest order
+http://localhost:4004/odata/v4/CatalogService/largestOrder()
+
