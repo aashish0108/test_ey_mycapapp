@@ -194,7 +194,7 @@ annotate service.PurchaseOrderItems with @(
 );
 
 annotate CatalogService.POs with {
-    PARTNER_GUID@(
+    PARTNER_GUID @(
         Common : { 
             Text : PARTNER_GUID.COMPANY_NAME,
          },
@@ -203,7 +203,7 @@ annotate CatalogService.POs with {
 };
 
 annotate CatalogService.PurchaseOrderItems with {
-    PRODUCT_GUID@(
+    PRODUCT_GUID @(
         Common : { 
             Text : PRODUCT_GUID.DESCRIPTION,
          },
