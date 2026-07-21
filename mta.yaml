@@ -11,7 +11,7 @@ build-parameters:
         - npm ci
         - npx cds build --production
 modules:
-# start of UI Module code
+  # start of UI Module code
   - name: mycapapp-ui
     type: nodejs
     path: app
@@ -28,7 +28,7 @@ modules:
           forwardAuthToken: true
           url: '~{srv-url}'
       - name: mycapapp-auth 
-# end of UI Module code
+  # end of UI Module code
   - name: mycapapp-srv
     type: nodejs
     path: gen/srv
